@@ -34,9 +34,10 @@
 
 	<script>
 		(function () {
-			'use strict'
+			'use strict' 
+ 
 			/* global jQuery */
-
+		
 			//////////////////////////////////////////////////////////////////
 			/////////////////// SETUP DO NOT DELETE //////////////////////////
 			//////////////////////////////////////////////////////////////////
@@ -66,6 +67,10 @@
 			//////////////////////////////////////////////////////////////////
 
 			// TODO 2 - Variable declarations 
+            var positionX = 0;
+			var points = 0;
+			var speed = 1;
+
 
 
 
@@ -75,9 +80,16 @@
 			turn it around! 
 			*/
 			function update() {
-
-
-			};
+			positionX = positionX + speed;
+			moveBoxTo(positionX);
+			if (positionX > boardWidth) {
+              speed = -speed
+			}
+			else if (positionX < 0) {
+				speed = -speed
+			}
+			
+			}
 
 			/* 
 			This Function will be called each time the box is clicked. Each time it is called,
@@ -85,9 +97,13 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
+            positionX = 0;
+			points = points + 1;
+            changeBoxText(points);
+			speed = 1 * speed + 2
 
 
-			};
+			}
 
 
 
